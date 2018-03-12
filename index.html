@@ -10,7 +10,11 @@
             flex-direction: column;
             justify-content: space-between;
 
+            grid-template-columns: 100%;
+            grid-template-rows: auto;
+
             min-height: 100vh;
+            width: 100%;
 
             background-color: #f1f1f1;
             word-wrap: break-word;
@@ -33,19 +37,21 @@
 
         h1,
         h2 {
+            box-sizing: border-box;
             max-width: 50rem;
             align-self: center;
             letter-spacing: -1px;
             line-height: 60px;
             font-size: 60px;
             font-weight: 100;
-            margin: 3.2rem 0 20px 0;
+            margin: 3.2rem 1rem 50px;
             text-shadow: 0 1px 0 #fff;
             text-align: center;
         }
 
         h2 {
             font-size: 40px;
+            margin-bottom: 1.2rem;
         }
 
         p {
@@ -56,9 +62,11 @@
 
         blockquote {
             align-self: center;
+            box-sizing: border-box;
             position: relative;
 
-            padding-bottom: 2rem;
+            margin: 1rem 0;
+            padding: 0 1rem 2rem 2rem;
 
             max-width: 50rem;
             width: 100%;
@@ -69,7 +77,7 @@
 
             position: absolute;
                 top: -1rem;
-                left: -2rem;
+                left: 0;
 
             color: #ddd;
             font-size: 4rem;
@@ -80,7 +88,7 @@
             content: "\2014 " attr(cite);
 
             position: absolute;
-                right: 0;
+                right: 1rem;
                 bottom: 0;
         }
 
@@ -165,6 +173,7 @@
             background-color: #f1f1f1;
             align-self: center;
         }
+
         h2 > a {
             text-shadow: none;
             font-size: 2rem;
