@@ -2,6 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
     <title>Food for 🤔</title>
     <style type="text/css">
         body {
@@ -59,6 +60,7 @@
             padding-bottom: 2rem;
 
             max-width: 50rem;
+            width: 100%;
         }
 
         blockquote::before {
@@ -117,6 +119,12 @@
             font-weight: 300;
         }
 
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-color: #4183c4;
+        }
+
         h2 { grid-area: header }
         input[name=who] { grid-area: who }
         input[name=when] { grid-area: when }
@@ -136,7 +144,7 @@
 <body>
     <main>
         <h1>Why were these said</h1>
-        <blockquote cite="Bryce, 2018">
+        <blockquote cite="Bryce, March 2018">
             <p>We're going to train people to use the tool anyway so it doesn't really need to be that intuitive</p>
         </blockquote>
     </main>
