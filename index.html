@@ -106,7 +106,7 @@
 
             grid-gap: 1rem;
             grid-template-rows: auto auto auto auto;
-            grid-template-columns: 1fr 1fr;
+            grid-template-columns: calc(50% - .5rem) calc(50% - .5rem);
             grid-template-areas:
                     "header header"
                     "who when"
@@ -114,6 +114,7 @@
                     ". send";
 
             max-width: 30rem;
+            box-sizing: border-box;
             margin: auto;
         }
 
