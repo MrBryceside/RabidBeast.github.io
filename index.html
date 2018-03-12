@@ -13,6 +13,7 @@
             min-height: 100vh;
 
             background-color: #f1f1f1;
+            word-wrap: break-word;
             margin: 0;
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
         }
@@ -27,8 +28,8 @@
             text-align: center;
         }
 
-        a { color: #4183c4; text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        a { color: black; text-decoration: none; }
+        a:hover { text-decoration: none; }
 
         h1,
         h2 {
@@ -38,7 +39,7 @@
             line-height: 60px;
             font-size: 60px;
             font-weight: 100;
-            margin: 5rem 0 50px 0;
+            margin: 3.2rem 0 20px 0;
             text-shadow: 0 1px 0 #fff;
             text-align: center;
         }
@@ -105,6 +106,7 @@
                     ". send";
 
             max-width: 30rem;
+            margin: auto;
         }
 
         input,
@@ -139,6 +141,34 @@
 
             background: #fff;
         }
+
+        span {
+            font-size: 2.5rem;
+            position: fixed;
+            top: 0;
+            right: 0;
+            padding: 0rem 1rem;
+        }
+
+        span:hover {
+            color: red;
+            cursor: pointer;
+        }
+
+        #modal {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: #f1f1f1;
+            align-self: center;
+        }
+        h2 > a {
+            text-shadow: none;
+            font-size: 2rem;
+        }
     </style>
 </head>
 <body>
@@ -148,14 +178,26 @@
             <p>We're going to train people to use the tool anyway so it doesn't really need to be that intuitive</p>
         </blockquote>
     </main>
-    <form action="https://formspree.io/peter@spsdgtl.com" method="POST">
-        <h2>Someone say something?</h2>
-        <input type="hidden" name="_cc" value="bryce@spsdgtl.com" />
-        <input type="hidden" name="_next" value="http://quotes.spsdgtl.com/" />
-        <input type="text" name="who" placeholder="Who?" required>
-        <input type="text" name="when" placeholder="When?" required>
-        <textarea name="what" placeholder="What?" required></textarea>
-        <input type="submit" value="Send">
-    </form>
+    <h2><a href="javascript:onActivate();">Someone say something?</a></h2>
+    <div id="modal">
+        <span class="close">&times;</span>
+        <form id="modal-content" action="https://formspree.io/peter@spsdgtl.com" method="POST">
+            <h2>Someone say something?</h2>
+            <input type="hidden" name="_cc" value="bryce@spsdgtl.com" />
+            <input type="hidden" name="_next" value="http://quotes.spsdgtl.com/" />
+            <input type="text" name="who" placeholder="Who?" required>
+            <input type="text" name="when" placeholder="When?" required>
+            <textarea name="what" placeholder="What?" required></textarea>
+            <input type="submit" value="Send">
+        </form>
+    </div>
 </body>
+
+<script>
+let modal = document.getElementById('modal')
+let span = document.getElementsByClassName('close')[0]
+function onActivate() { modal.style.display = 'block' }
+span.onclick = function() { modal.style.display = 'none' }
+</script>
+
 </html>
