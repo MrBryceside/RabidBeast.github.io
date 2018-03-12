@@ -111,8 +111,7 @@
                     "header header"
                     "who when"
                     "what what"
-                    ". send"
-                    "small small";
+                    "small send";
 
             max-width: 30rem;
             box-sizing: border-box;
@@ -187,7 +186,6 @@
         }
 
         small {
-            padding-top: 1rem;
             grid-area: small;
         }
     </style>
@@ -195,6 +193,9 @@
 <body>
     <main>
         <h1>Why were these said</h1>
+        <blockquote cite="Chase, March 2018">
+            <p>Blanche isn't about chickens, it's about love, dammit.</p>
+        </blockquote>
         <blockquote cite="Bryce, March 2018">
             <p>We're going to train people to use the tool anyway so it doesn't really need to be that intuitive</p>
         </blockquote>
@@ -209,7 +210,7 @@
             <input type="text" name="who" placeholder="Who?" required>
             <input type="text" name="when" placeholder="When?" required>
             <textarea name="what" placeholder="What?" required></textarea>
-            <input type="submit" value="Send">
+            <input type="submit" value="Submit">
             <small>We have high standards.</small>
         </form>
     </div>
