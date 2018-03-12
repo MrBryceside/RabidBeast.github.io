@@ -7,10 +7,27 @@
         body {
             display: flex;
             flex-direction: column;
+            justify-content: space-between;
+
+            min-height: 100vh;
 
             background-color: #f1f1f1;
             margin: 0;
             font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+        }
+
+        main {
+            display: flex;
+            flex-direction: column;
+        }
+
+        footer {
+            padding: 1rem;
+            text-align: center;
+        }
+
+        footer a {
+            font-size: 1.2rem;
         }
 
         a { color: #4183c4; text-decoration: none; }
@@ -70,12 +87,21 @@
         blockquote p:last-child {
             margin-bottom: 0;
         }
+
+        #space-is-cool {
+            flex: 1 1 auto;
+        }
     </style>
 </head>
 <body>
-    <h1>Why were these said</h1>
-    <blockquote cite="Bryce, 2018">
-        <p>We're going to train people to use the tool anyway so it doesn't really need to be that intuitive</p>
-    </blockquote>
+    <main>
+        <h1>Why were these said</h1>
+        <blockquote cite="Bryce, 2018">
+            <p>We're going to train people to use the tool anyway so it doesn't really need to be that intuitive</p>
+        </blockquote>
+    </main>
+    <footer>
+        <a href="mailto:bryce@spsdgtl.com,peter@spsdgtl.com?Subject=Someone%20said%20something&Body=Who%3A%20%0AWhat%3A%20%0AWhen%3A%20">Someone say something?</a>
+    </footer>
 </body>
 </html>
