@@ -193,11 +193,38 @@
         p > a {
             color: inherit;
         }
+
+        p.computer-science {
+            transition: transform 3s;
+        }
+
+        p.computer-science:hover {
+            color: #b500b7;
+
+            animation: visibleconcern 0.5s 3s infinite alternate;
+
+            transform: rotateZ(34deg);
+            transform-origin: bottom left;
+
+            transition: transform 3s, color 0.4s 2.6s;
+        }
+        
+        @keyframes visibleconcern {
+            to {
+                color: red;
+            }
+            from {
+                color: purple;
+            }
+        }
     </style>
 </head>
 <body>
     <main>
         <h1>Why were these said</h1>
+        <blockquote cite="Bryce, June 2018">
+            <p class="computer-science">They entered the CS world, nothing is ever going to be graceful again.</p>
+        </blockquote>
         <blockquote cite="Edger, reminiscing about Coca-Cola, June 2018">
             <p>This is how it happens. I'm joining the military.</p>
         </blockquote>
