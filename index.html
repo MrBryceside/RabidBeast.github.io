@@ -217,11 +217,42 @@
                 color: purple;
             }
         }
+
+        .duck {
+            display: inline-block;
+        }
+
+        .duck > * {
+            display: inline-block;
+            position: relative;
+
+            animation: ambiducktrous 0.8s infinite alternate;
+        }
+
+        .duck > *:nth-child(2n) {
+            animation-delay: -0.8s;
+        }
+
+        @keyframes ambiducktrous {
+            from {
+                transform: skewY(15deg);
+            }
+            to {
+                transform: skewY(-15deg);
+            }
+        }
     </style>
 </head>
 <body>
     <main>
         <h1>Why were these said</h1>
+        <blockquote cite="Bryce, February 2019">
+            <p><em class="duck"><span>q</span><span>u</span><span>a</span><span>c</span><span>k</span></em></p>
+            <p>Down with America.</p>
+        </blockquote>
+        <blockquote cite="Peter, February 2019">
+            <p>Tristan literally believes he's Ted Cruz.</p>
+        </blockquote>
         <blockquote cite="Peter, looking at old code, February 2019">
             <p>Someone's doing my work for me...</p>
             <p>Doing it wrong!</p>
