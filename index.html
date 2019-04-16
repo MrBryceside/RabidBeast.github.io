@@ -190,7 +190,7 @@
             grid-area: small;
             align-self: center;
         }
-        
+
         p > a {
             color: inherit;
         }
@@ -209,7 +209,7 @@
 
             transition: transform 3s, color 0.4s 2.6s;
         }
-        
+
         @keyframes visibleconcern {
             to {
                 color: red;
@@ -250,11 +250,47 @@
         .all-women-are-queens:hover {
             text-decoration: underline;
         }
+
+        .profit {
+            display: block;
+            pointer-events: none;
+            -moz-pointer-events: none;
+            position: fixed;
+
+            color: rgb(107, 167, 63);
+
+            transform-origin: center;
+
+            animation: profit-growth 2s linear;
+        }
+
+        @keyframes profit-growth {
+            0% {
+                opacity: 1;
+
+                color: rgb(128, 196, 45);
+
+                transform: scale(1) translateY(0);
+            }
+            50% {
+                transform: scale(1.5) translateY(25px);
+            }
+            100% {
+                color: rgb(74, 115, 60);
+
+                opacity: 0;
+
+                transform: scale(1.5) translateY(50px);
+            }
+        }
     </style>
 </head>
 <body>
     <main>
         <h1>Why were these said</h1>
+        <blockquote id="dosh-generator" cite="Shaun, speaking officially as CEO, April 2019">
+            <p>The green dollar sign fixes ALL of our problems!</p>
+        </blockquote>
         <blockquote cite="Peter, then Bryce, March 2019">
             <p>Where did you read that?</p>
             <p>I didn't. It's called a fallacy, Peter, let me have my moment.</p>
@@ -581,7 +617,7 @@
             <p>We're going to train people to use the tool anyway so it doesn't really need to be that intuitive</p>
         </blockquote>
     </main>
-    <h2><a href="javascript:onActivate();">Someone say something?</a></h2>
+    <h2><a id="saying-quotes" href="#!">Someone say something?</a></h2>
     <div id="modal">
         <span class="close">&times;</span>
         <form id="modal-content" action="https://formspree.io/peter@spsdgtl.com" method="POST">
@@ -595,13 +631,51 @@
             <small>We have high standards.</small>
         </form>
     </div>
+    <script>
+        const modal = document.getElementById( 'modal' )
+        const saying = document.getElementById('saying-quotes')
+        const close = document.getElementsByClassName( 'close' )[0]
+
+        saying.addEventListener( 'click', () => { modal.style.display = 'block' } )
+        close.addEventListener( 'click', () => { modal.style.display = 'none' } )
+
+        let ticking = false
+        let interval
+        const generator = document.getElementById('dosh-generator')
+        const lastKnownMousePosition = { x: 0, y: 0 }
+
+        const setPosition = event => {
+            lastKnownMousePosition.x = event.x
+            lastKnownMousePosition.y = event.y
+        }
+        const removeProfit = profit => profit.remove()
+        const generateProfit = () => {
+            if ( ticking )
+                return
+
+            window.requestAnimationFrame( () => {
+                let profit = document.createElement( 'span' )
+                profit.className = 'profit'
+                profit.style.left = `${ lastKnownMousePosition.x }px`
+                profit.style.top = `${ lastKnownMousePosition.y }px`
+                profit.textContent = '$'
+                document.body.append( profit )
+                setTimeout( removeProfit, 2009, profit )
+                ticking = false
+            } )
+            ticking = true
+        }
+
+        generator.addEventListener( 'mouseenter', event => {
+            setPosition( event )
+            if ( ! interval )
+            interval = setInterval( generateProfit, 50 )
+        } )
+        generator.addEventListener( 'mousemove', event => setPosition( event ) )
+        generator.addEventListener( 'mouseleave', () => {
+            clearInterval( interval )
+            interval = null
+        } )
+    </script>
 </body>
-
-<script>
-let modal = document.getElementById('modal')
-let span = document.getElementsByClassName('close')[0]
-function onActivate() { modal.style.display = 'block' }
-span.onclick = function() { modal.style.display = 'none' }
-</script>
-
 </html>
