@@ -264,6 +264,19 @@
             animation: profit-growth 2s linear;
         }
 
+        .big.boi {
+            cursor: crosshair;
+
+            margin-bottom: -0.5rem;
+
+            font-size: 2.5rem;
+            line-height: 2.5rem;
+        }
+
+        #who-is-you {
+            cursor: help;
+        }
+
         @keyframes profit-growth {
             0% {
                 opacity: 1;
@@ -288,6 +301,10 @@
 <body>
     <main>
         <h1>Why were these said</h1>
+        <blockquote cite="Bryce, August 2019">
+            <p class="big boi">😡</p>
+            <p>Why are <span id="who-is-you">you</span> using Marleen as a weapon</p>
+        </blockquote>
         <blockquote cite="Kassandra, July 2019">
             <p>Hey guys, I heard this is the place to get lost in the sauce.</p>
         </blockquote>
@@ -717,6 +734,9 @@
             clearInterval( interval )
             interval = null
         } )
+
+        const whoIsYou = document.getElementById('who-is-you')
+        whoIsYou.addEventListener( 'click', () => alert( 'But who\'s “you”? —Baraon, August 2019' ) )
     </script>
 </body>
 </html>
