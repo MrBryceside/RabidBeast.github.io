@@ -331,7 +331,7 @@
                 left: 0;
             z-index: -1;
 
-            height: 100%;
+            height: 0;
             width: 100%;
 
             animation: why-indeed-rising 2s 7s forwards, why-indeed-pulse 1s 14s infinite alternate;
@@ -359,10 +359,14 @@
         }
 
         @keyframes why-indeed-rising {
-            from {
+            0% {
                 background-color: transparent;
+                height: 0;
             }
-            to {
+            1% {
+                height: 100%;
+            }
+            100% {
                 background-color: black;
             }
         }
