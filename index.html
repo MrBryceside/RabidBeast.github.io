@@ -165,7 +165,7 @@
             cursor: pointer;
         }
 
-        #modal {
+        .modal {
             display: none;
             position: fixed;
             top: 0;
@@ -299,11 +299,98 @@
                 transform: scale(1.5) translateY(50px);
             }
         }
+
+        h1:hover {
+            position: relative;
+            z-index: 2;
+        }
+
+        h1:hover span {
+            display: block;
+            position: relative;
+
+            color: rgba(175, 239, 255, 0.0);
+            text-shadow: 0 1px 0 #fff0;
+
+            transform: scaleY(1.7) rotate(2deg);
+
+            transition: transform 2s 6s, color 2s 7s, text-shadow 2s 7s;
+        }
+
+        h1::before {
+            content: '';
+
+            background-color: transparent;
+        }
+
+        h1:hover::before {
+            content: '';
+
+            position: fixed;
+                top: 0;
+                left: 0;
+            z-index: -1;
+
+            height: 100%;
+            width: 100%;
+
+            animation: why-indeed-rising 2s 7s forwards, why-indeed-pulse 1s 14s infinite alternate;
+        }
+
+        h1:hover::after {
+            content: 'WHY ... INDEED?';
+
+            overflow: hidden;
+            position: fixed;
+                top: calc(50vh - 1.5rem);
+                left: calc(50vw - 15rem);
+            z-index: -1;
+
+            height: 3rem;
+            width: 0;
+
+            color: transparent;
+            font-family: monospace;
+            font-size: 3.44rem;
+            line-height: 100%;
+            white-space: nowrap;
+
+            animation: why-indeed-typing 3s 10s steps(15, start) forwards, why-indeed-pulse 1s 14s infinite alternate;
+        }
+
+        @keyframes why-indeed-rising {
+            from {
+                background-color: transparent;
+            }
+            to {
+                background-color: black;
+            }
+        }
+
+        @keyframes why-indeed-pulse {
+            from {
+                color: white;
+                background-color: black;
+            }
+            to {
+                color: #afefff;
+                background-color: #160101;
+            }
+        }
+
+        @keyframes why-indeed-typing {
+            from {
+                width: 0;
+            }
+            to {
+                width: 30rem;
+            }
+        }
     </style>
 </head>
 <body>
     <main>
-        <h1>Why were these said</h1>
+        <h1><span>Why were these said</span></h1>
         <blockquote cite="Baraon, January 2021">
             <p>I'm gonna send Alex a bunch of 🥺🥺🥺🥺 and hopefully she understands what I mean.</p>
         </blockquote>
@@ -891,9 +978,9 @@
         </blockquote>
     </main>
     <h2><a id="saying-quotes" href="#!">Someone say something?</a></h2>
-    <div id="modal">
+    <div id="modal" class="modal">
         <span class="close">&times;</span>
-        <form id="modal-content" action="https://formspree.io/f/peter@spsdgtl.com" method="POST">
+        <form class="modal-content" action="https://formspree.io/f/peter@spsdgtl.com" method="POST">
             <h2>Someone say something?</h2>
             <input type="hidden" name="_cc" value="bryce@spsdgtl.com" />
             <input type="hidden" name="_next" value="http://quotes.spsdgtl.com/" />
@@ -904,13 +991,19 @@
             <small>We have high standards.</small>
         </form>
     </div>
+    <div id="game" class="modal">
+        <span class="close">&times;</span>
+        <div class="modal-content">
+        </div>
+    </div>
     <script>
         const modal = document.getElementById( 'modal' )
         const saying = document.getElementById('saying-quotes')
-        const close = document.getElementsByClassName( 'close' )[0]
+        const [close, quit] = document.getElementsByClassName( 'close' )[0]
 
         saying.addEventListener( 'click', () => { modal.style.display = 'block' } )
         close.addEventListener( 'click', () => { modal.style.display = 'none' } )
+        quit.addEventListener( 'click', () => { modal.style.display = 'none' } )
 
         let ticking = false
         let interval
