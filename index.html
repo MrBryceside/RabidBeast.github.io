@@ -479,6 +479,9 @@
 <body>
     <main>
         <h1><span>Why were these said</span></h1>
+        <blockquote cite="Shaun, to Bryce, February 2021">
+            <p><em>You</em> have a vet appointment? You should really consider a regular doctor, man.</p>
+        </blockquote>
         <blockquote cite="Baraon, January 2021">
             <p>I'm gonna send Alex a bunch of 🥺🥺🥺🥺 and hopefully she understands what I mean.</p>
         </blockquote>
@@ -1161,7 +1164,7 @@
 
         for ( let quote of document.querySelectorAll( 'main blockquote' ) ) {
             let cite = quote.attributes.cite.value
-            if ( cite.includes( 'Joe' ) ) {
+            /*if ( cite.includes( 'Joe' ) ) {
                 realQuotes.push( {
                     childNodes: mentalHealth.childNodes,
                     cite: '[redacted], ' + cite.split( ',' ).slice( -1 ),
@@ -1170,7 +1173,7 @@
                     real: true
                 } )
                 continue
-            }
+            }*/
 
             let mode = Math.random() < 0.2 ? 'sus' : 'normal'
             realQuotes.push( {
